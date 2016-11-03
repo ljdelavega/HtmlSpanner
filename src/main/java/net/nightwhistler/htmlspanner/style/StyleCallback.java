@@ -140,8 +140,8 @@ public class StyleCallback implements SpanCallback {
 
             int marginEnd = min( end, marginStart +1 );
 
-            Log.d("StyleCallback", "Applying LeadingMarginSpan from " + marginStart + " to " + marginEnd +
-                    " on text " + builder.subSequence(marginStart, marginEnd));
+//            Log.d("StyleCallback", "Applying LeadingMarginSpan from " + marginStart + " to " + marginEnd +
+//                    " on text " + builder.subSequence(marginStart, marginEnd));
 
             if ( styleValue.getUnit() == StyleValue.Unit.PX ) {
                 if ( styleValue.getIntValue() > 0 ) {

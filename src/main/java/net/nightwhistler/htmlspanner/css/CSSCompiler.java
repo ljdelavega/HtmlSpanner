@@ -35,7 +35,7 @@ public class CSSCompiler {
 
     public static CompiledRule compile( Rule rule, HtmlSpanner spanner ) {
 
-        Log.d("CSSCompiler", "Compiling rule " + rule );
+//        Log.d("CSSCompiler", "Compiling rule " + rule );
 
         List<List<TagNodeMatcher>> matchers = new ArrayList<List<TagNodeMatcher>>();
         List<StyleUpdater> styleUpdaters = new ArrayList<StyleUpdater>();
@@ -57,7 +57,7 @@ public class CSSCompiler {
             }
         }
 
-        Log.d("CSSCompiler", "Compiled rule: " + blank );
+//        Log.d("CSSCompiler", "Compiled rule: " + blank );
 
         String asText = rule.toString();
 
@@ -184,12 +184,12 @@ public class CSSCompiler {
                 return new StyleUpdater() {
                     @Override
                     public Style updateStyle(Style style, HtmlSpanner spanner) {
-                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
                         return style.setColor(color);
                     }
                 };
             } catch ( IllegalArgumentException ia ) {
-                Log.e("CSSCompiler", "Can't parse colour definition: " + value);
+//                Log.e("CSSCompiler", "Can't parse colour definition: " + value);
                 return null;
             }
         }
@@ -200,7 +200,7 @@ public class CSSCompiler {
                 return new StyleUpdater() {
                     @Override
                     public Style updateStyle(Style style, HtmlSpanner spanner) {
-                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
                         return style.setBackgroundColor(color);
                     }
                 };
@@ -216,7 +216,7 @@ public class CSSCompiler {
                 return new StyleUpdater() {
                     @Override
                     public Style updateStyle(Style style, HtmlSpanner spanner) {
-                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
                         return style.setTextAlignment(alignment);
                     }
                 };
@@ -235,7 +235,7 @@ public class CSSCompiler {
                 return new StyleUpdater() {
                     @Override
                     public Style updateStyle(Style style, HtmlSpanner spanner) {
-                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
                         return style.setFontWeight(weight);
                     }
                 };
@@ -252,7 +252,7 @@ public class CSSCompiler {
                 return new StyleUpdater() {
                     @Override
                     public Style updateStyle(Style style, HtmlSpanner spanner) {
-                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
                         return style.setFontStyle(fontStyle);
                     }
                 };
@@ -267,11 +267,11 @@ public class CSSCompiler {
             return new StyleUpdater() {
                 @Override
                 public Style updateStyle(Style style, HtmlSpanner spanner) {
-                    Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                    Log.d("CSSCompiler", "Applying style " + key + ": " + value );
 
                     FontFamily family = spanner.getFont( value );
 
-                    Log.d("CSSCompiler", "Got font " + family );
+//                    Log.d("CSSCompiler", "Got font " + family );
 
                     return style.setFontFamily(family);
                 }
@@ -288,7 +288,7 @@ public class CSSCompiler {
                 return new StyleUpdater() {
                     @Override
                     public Style updateStyle(Style style, HtmlSpanner spanner) {
-                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                        Log.d("CSSCompiler", "Applying style " + key + ": " + value );
                         return style.setFontSize(styleValue);
                     }
                 };
@@ -301,7 +301,7 @@ public class CSSCompiler {
                     return new StyleUpdater() {
                         @Override
                         public Style updateStyle(Style style, HtmlSpanner spanner) {
-                            Log.d("CSSCompiler", "Applying style " + key + ": " + value );
+//                            Log.d("CSSCompiler", "Applying style " + key + ": " + value );
                             return style.setFontSize(new StyleValue(number, StyleValue.Unit.EM));
                         }
                     };
@@ -495,14 +495,14 @@ public class CSSCompiler {
 
         for ( String part: parts ) {
 
-            Log.d("CSSParser", "Trying to parse " + part );
+//            Log.d("CSSParser", "Trying to parse " + part );
 
             if ( borderWidth == null ) {
 
                 borderWidth = StyleValue.parse( part );
 
                 if ( borderWidth != null ) {
-                    Log.d("CSSParser", "Parsed " + part + " as border-width");
+//                    Log.d("CSSParser", "Parsed " + part + " as border-width");
                     continue;
                 }
             }
@@ -510,7 +510,7 @@ public class CSSCompiler {
             if ( borderColor == null ) {
                 try {
                     borderColor = parseCSSColor(part);
-                    Log.d("CSSParser", "Parsed " + part + " as border-color");
+//                    Log.d("CSSParser", "Parsed " + part + " as border-color");
                     continue;
                 } catch ( IllegalArgumentException ia ) {
                     //try next one
@@ -520,7 +520,7 @@ public class CSSCompiler {
             if ( borderStyle == null ) {
                 try {
                     borderStyle = Style.BorderStyle.valueOf(part.toUpperCase());
-                    Log.d("CSSParser", "Parsed " + part + " as border-style");
+//                    Log.d("CSSParser", "Parsed " + part + " as border-style");
                     continue;
                 } catch ( IllegalArgumentException ia ) {
                     //next loop iteration

@@ -32,9 +32,9 @@ public class SpanStack {
 
         if ( ! lookupCache.containsKey(node) ) {
 
-            Log.v("SpanStack", "Looking for matching CSS rules for node: "
-                    + "<" + node.getName() + " id='" + option(node.getAttributeByName("id"))
-                    + "' class='" + option(node.getAttributeByName("class")) + "'>");
+//            Log.v("SpanStack", "Looking for matching CSS rules for node: "
+//                    + "<" + node.getName() + " id='" + option(node.getAttributeByName("id"))
+//                    + "' class='" + option(node.getAttributeByName("class")) + "'>");
 
             List<CompiledRule> matchingRules = new ArrayList<CompiledRule>();
             for ( CompiledRule rule: rules ) {
@@ -43,7 +43,7 @@ public class SpanStack {
                 }
             }
 
-            Log.v("SpanStack", "Found " + matchingRules.size() + " matching rules.");
+//            Log.v("SpanStack", "Found " + matchingRules.size() + " matching rules.");
             lookupCache.put(node, matchingRules);
         }
 
@@ -51,13 +51,13 @@ public class SpanStack {
 
         for ( CompiledRule rule: lookupCache.get(node) ) {
 
-            Log.v( "SpanStack", "Applying rule " + rule );
+//            Log.v( "SpanStack", "Applying rule " + rule );
 
             Style original = result;
             result = rule.applyStyle(result);
 
-            Log.v("SpanStack", "Original style: " + original );
-            Log.v("SpanStack", "Resulting style: " + result);
+//            Log.v("SpanStack", "Original style: " + original );
+//            Log.v("SpanStack", "Resulting style: " + result);
         }
 
         return result;
@@ -84,8 +84,8 @@ public class SpanStack {
 
             spanItemStack.push(callback);
         } else {
-            Log.d( "SpanStack", "refusing to put span of type " + span.getClass().getSimpleName()
-                    + " and length " + (end - start) );
+//            Log.d( "SpanStack", "refusing to put span of type " + span.getClass().getSimpleName()
+//                    + " and length " + (end - start) );
         }
     }
 

@@ -22,7 +22,6 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.util.Log;
 import net.nightwhistler.htmlspanner.exception.ParsingCancelledException;
 import net.nightwhistler.htmlspanner.handlers.*;
 import net.nightwhistler.htmlspanner.handlers.attributes.AlignmentAttributeHandler;
@@ -437,6 +436,10 @@ public class HtmlSpanner {
 
         registerHandler("font", new FontHandler() );
 
+        registerHandler("u", new UnderlineHandler() );
+        registerHandler("strike", new StrikethroughHandler() );
+        registerHandler("ins", new UnderlineHandler() );
+        registerHandler("del", new StrikethroughHandler() );
     }
 
     public static interface CancellationCallback {

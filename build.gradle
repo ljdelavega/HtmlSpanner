@@ -1,9 +1,10 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.3'
+        classpath 'com.android.tools.build:gradle:2.2.2'
     }
 }
 
@@ -14,6 +15,7 @@ repositories {
     maven {
         url "http://repo.pageturner-reader.org"
     }
+    jcenter()
 }
 
 dependencies {
@@ -38,15 +40,4 @@ android {
     }
 }
 
-apply plugin: 'sonar-runner'
-
-sonarRunner {
-    sonarProperties {
-        property "sonar.sourceEncoding", "UTF-8"
-//        property "sonar.profile", "Android Lint"
-        property "sonar.sources", "src"
-        property "sonar.binaries", file("${project.buildDir}/intermediates/classes/debug") 
-       // property "sonar.libraries", "android.sourceSets.main.runtimeClasspath"
-    }
-}
 

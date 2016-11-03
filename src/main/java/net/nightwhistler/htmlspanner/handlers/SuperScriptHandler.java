@@ -22,6 +22,7 @@ import org.htmlcleaner.TagNode;
 
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
 /**
@@ -35,6 +36,7 @@ public class SuperScriptHandler extends TagNodeHandler {
 	public void handleTagNode(TagNode node, SpannableStringBuilder builder,
 			int start, int end, SpanStack spanStack) {
 		spanStack.pushSpan(new SuperscriptSpan(), start, end);
+		spanStack.pushSpan(new RelativeSizeSpan(0.8f), start, end);
 	}
 
 }
